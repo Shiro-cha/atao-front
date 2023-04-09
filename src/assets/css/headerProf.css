@@ -1,0 +1,28 @@
+.mega-menu-prof{
+    background: #1b7895;
+    padding: 5px 0;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+}
+.nav-prof{
+    display: flex;
+    margin: 0;
+    align-items: center;
+}
+.nav-prof li{
+    list-style-type: none;
+    display: inline-block;
+    font-family: "Ubuntu",sans-serif;
+    color: #fff;
+    font-weight: 700;
+    padding-right: 20px;
+    padding-left: 17.1px;
+    margin-bottom: 0;
+    cursor: pointer;
+    
+}
+.content-nav-prof{
+    display: flex;
+    justify-content: end;
+}

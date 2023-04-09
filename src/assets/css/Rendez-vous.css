@@ -1,0 +1,119 @@
+
+.table-hover{
+  background:none !important;
+}
+
+.main .table-hover .dets{
+    background-color: #1b7895;
+    border: none;
+    color: #fff;
+    padding: 3px 10px;
+}
+.main .table-hover .valide{
+    border: none;
+    padding: 3px 10px;
+}
+.main .card .title-card{
+    padding: 1.4rem !important;
+    background-color: #1b7895;
+}
+.main .card .title-card h5{
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+}
+.main .mes-list{
+    margin-bottom: 20px;
+}
+
+/* button non checked */
+.non-checked {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #344d59;
+    border-radius: 50%;
+    background-color: #22232328;
+    color: #fff;
+    outline: none;
+    font-weight: bold;
+    line-height: baseline;
+}
+
+.bot button {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1b7895;
+    color:#fff;
+    right: 20px;
+    bottom: 20px;
+    outline: none;
+    font-weight: bold;
+    opacity: 0.5;
+    z-index: 1000;
+    box-shadow: 0px 0px 3px rgb(180, 11, 180);
+}
+
+.bot button:hover {
+    opacity: 1;
+}
+
+
+/* buttton */
+
+.btn-taches {
+    border:1px solid #1222;
+    width: 200px;
+    padding: .8em;
+    margin: 1em;
+    border-radius:30px;
+    font-weight: bold;
+    color: #000;
+    /* border-top-left-radius:34px;
+    border-top-right-radius:34px; */
+    background-color: #22232328;
+    outline:none;
+}
+
+.btn-taches.active {
+    background-color:#344d59 ;
+    color: #fff;
+}
+
+
+.voir {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5em;
+    display: block;
+}
+
+td a.line {
+    width: 30px !important;
+    background-color: rgb(143, 141, 141) ;
+    text-decoration: none;
+    display: block;
+    height: 8px;
+}
+
+th {
+    color:rgb(105, 101, 101);
+}
+
+input[type="checkbox"].check-tache{
+
+  width:20px !important;
+  height: 20px !important;
+  border:1px solid transparent !important;
+  border-radius:100px !important; 
+
+}
+
+thead{
+
+color:#1b7895 !important;
+
+}

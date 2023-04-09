@@ -1,0 +1,44 @@
+.down button{
+    background-color: #1b7895;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 2px 10px;
+}
+.news-mdp label{
+    font-size: 12px;
+}
+.profil-dash-doc .row h3{
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+}
+.text-modif{
+  font-size: 14px;
+}
+.card-profil{
+  padding: 0 !important;
+}
+.card-profil .tab-content{
+  padding: 1rem !important;
+}
+.card-profil .head-card{
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1b7895;
+  padding:1rem !important;
+}
+.card-profil .btn-modif{
+  background: #c5305f;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    border: 0;
+    padding: 4px 15px;
+    font-size: 15px;
+}
+.card-profil .text-modif img{
+  width: 50px;
+  margin: 0 7px;
+}

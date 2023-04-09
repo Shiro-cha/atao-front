@@ -1,0 +1,151 @@
+.big-content-logdoc{
+    height: 100vh;
+    background-color: #c7c2c2;
+}
+
+.form-log-doc{
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    height: 80%;
+   box-shadow:  0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+}
+.lign-log-doc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.img-logo-pro {
+    background-color: #eee;
+    height: 120px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 7px;
+    margin-bottom: 1.5em;
+    transition: all 0.5s;
+}
+
+
+
+.img-logo-pro img{
+    width:100px;
+    height: 110px;
+    padding: 0.5em;
+    
+}
+
+.big-content-logdoc .pseudo-table { 
+    display: table; 
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.big-content-logdoc label {
+    display: table-header-group;
+    position: absolute;
+    color: #7b809ac4;
+    top: 9px;
+    left: 20px;
+    transition: 0.2s ease all;
+    font-size: 14px;
+    pointer-events: none;
+}
+.big-content-logdoc .content-form-doc .remember{
+    position: relative;
+}
+.big-content-logdoc input {
+     display: table-row-group; 
+     padding: 7px; 
+     border-radius: 7px;
+     width: 100%;
+     border: 1px solid #d2d6da;
+}
+.big-content-logdoc input:focus + label { 
+         color:#1b7895; 
+         font-weight: bold;
+         position: absolute;
+         top: -6px; 
+         background-color: #fff; 
+         font-size: 10px; 
+         padding-left: 4px;
+         padding-right: 4px; 
+}
+.big-content-logdoc .pseudo-table input:focus-visible{
+    outline: none;
+    border: 2px solid #1b7895;
+    border-radius: 7px;
+}
+.form-check-input:checked {
+    background-color: #1b7895 !important;
+    border-color: #1b7895;
+}
+.form-check-input:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.big-content-logdoc .content-form-doc .form-check p{
+    font-size: 14px;
+    color: #7b809ac4;
+}
+.big-content-logdoc .content-form-doc .form-check input{
+    margin-right: 10px;
+}
+.big-content-logdoc .content-form-doc .content-btn-connex button{
+    display: inline-block;
+    padding: 1.1875rem 2.125rem;
+    border: 0.125rem solid #137c8b;
+    background-color: #137c8b;
+    color: #fff;
+    font: 700 0.75rem/0 "Raleway",sans-serif;
+    text-decoration: none;
+    transition: all .2s;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 19px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.big-content-logdoc .content-form-doc .content-btn-connex button:hover {
+    border: 0.125rem solid #137c8b;
+    color: #137c8b;
+    background-color: #fff;
+}
+.big-content-logdoc .content-form-doc .inscri-log-doc p{
+    font-size: 12px;
+    color: #7b809ac4; 
+}
+.big-content-logdoc .content-form-doc .inscri-log-doc{
+    text-align: center;
+}
+.big-content-logdoc .content-form-doc .inscri-log-doc p a.connecter{
+    color: #c216a5;
+    text-decoration: none;
+    font-weight: bold;
+}
+.big-content-logdoc .content-form-doc .inscri-log-doc .connecter:hover{
+    color: #1c7bd4;
+} 
+.big-content-logdoc .title-doc p{
+    color: #344767 ;
+    font-size: 14px;
+    font-weight: bold;
+}
+.big-content-logdoc .title-doc p span{
+    font-weight: bold;
+    color: rgb(214, 20, 198);
+}
+.big-content-logdoc .title-doc{
+    text-align: center;
+    margin-top: 7px;
+    line-height: 25px;
+}
+
+.force {
+    height: 450px;
+    padding: 1em;
+}
+

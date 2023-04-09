@@ -1,0 +1,17 @@
+.dash{
+    font-size: 26px;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+.my-navigation{
+    background-color: #fff !important;
+    border-bottom: 1px solid #233;
+}
+.sidebar .foot-dec{
+    position: absolute;
+    bottom: 0;
+}
+.name {
+    color: #212;
+}
+ 
