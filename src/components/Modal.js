@@ -10,7 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import IconButton  from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-function MyModal() {
+export default function MyModal() {
 
     
 
