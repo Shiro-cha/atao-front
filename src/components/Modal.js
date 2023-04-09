@@ -50,7 +50,7 @@ function MyModal() {
             action={
               <IconButton
                 aria-label="close"
-                onClick={handleClose}
+                
               >
                 <CloseIcon />
               </IconButton>
