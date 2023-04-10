@@ -22,7 +22,7 @@ function ConnexionForm() {
     .then(response => {
       // handle success
       console.log(response.data);
-      navigate(`/taches?user=${response.data._id.toString()}`);
+      navigate(`/taches?user=${response.data._id.toString()}&coloc=${response.data.id_coloc}`);
       
     })
     .catch(error => {

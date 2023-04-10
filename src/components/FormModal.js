@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import moment from 'moment';
+import axios from "axios";
+import Multiselect from "multiselect-react-dropdown";
+
+import baseUrl from "../config/baseUrl";
+
+let api = axios.create(baseUrl)
+
 
 function EventForm({ addEvent }) {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  
+  const [options, setOptions] = useState([]);
+
   
  
     
@@ -20,6 +30,12 @@ function EventForm({ addEvent }) {
     setDate('');
     setTime('');
   };
+  
+  useEffect(() => {
+    api.post("/get-coloc").then((response) => {
+      setOptions(response.data);
+    });
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -55,6 +71,14 @@ function EventForm({ addEvent }) {
         required
         className="w-100 mt-2"
       />
+      </div>
+      <div className="col-12">
+      <Multiselect
+      options={options}
+      displayValue="name"
+      onSelect={onSelect}
+      onRemove={onRemove}
+    />
       </div>
       <div className="col-12">
       <Button type="submit" variant="contained" className="w-100 mt-2">Ajouter</Button>
