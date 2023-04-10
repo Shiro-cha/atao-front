@@ -10,7 +10,7 @@ import NoColoc from './NoColoc';
 
 
 
-/**const roommateList = [
+const roommateList = [
   {
     name: 'Alice',
   },
@@ -20,9 +20,9 @@ import NoColoc from './NoColoc';
   {
     name: 'Charlie',
   },
-];**/
+];
 
-const roommateList = []
+//const roommateList = []
 
 export default function ColocComponent() {
 
