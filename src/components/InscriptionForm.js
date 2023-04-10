@@ -28,7 +28,7 @@ function InscriptionForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = { nom:nom, prenom:prenom, sexe:sexe, email:email ,phone:phone,password:password, contact:contact};
+    const data = { nom:nom, prenom:prenom, sexe:sexe, email:email ,phone:phone,password:password, contact:phone};
     api.post("/create-user",data).then(function({data}){
 
       setTypeToast("success");
