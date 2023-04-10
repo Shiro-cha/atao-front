@@ -56,6 +56,15 @@ function TableEmploiDuTemps({  onUpdate }) {
     const value = event.target.value;
     setModifiedData((prevState) =>
       prevState.map((row, i) =>
+        i === rowIndex ? { ...row, name: value } : row
+      )
+    );
+  };
+  
+  const handleInputNameChange = (event, rowIndex) => {
+    const value = event.target.value;
+    setModifiedData((prevState) =>
+      prevState.map((row, i) =>
         i === rowIndex ? { ...row, [JOURS_SEMAINE[colIndex]]: value } : row
       )
     );
@@ -93,7 +102,19 @@ function TableEmploiDuTemps({  onUpdate }) {
         <TableBody>
           {data.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
-              <TableCell>{row.name}</TableCell>
+                {
+                
+                isEditMode? (
+                    <TextField
+                      variant="outlined"
+                      margin="none"
+                      value={row.name}
+                      onChange={(event) => handleInputNameChange(event, rowIndex)}
+                    />
+                  ) :
+                    <TableCell>{row.name}</TableCell>
+                }
+              
               {JOURS_SEMAINE.map((jour, colIndex) => (
                 <TableCell key={jour} align="center">
                   {isEditMode ? (
