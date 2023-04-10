@@ -27,6 +27,22 @@ const events = [
 ];
 
 function EmploiDuTemps() {
+
+     const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleSelectEvent = (event) => {
+    setSelectedEvent(event);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedEvent(null);
+  };
+
+  const handleSaveEvent = (event) => {
+    // Enregistrer l'événement modifié dans la base de données ou dans la liste des événements
+    setSelectedEvent(null);
+  };
+
   return (
     <div>
       <h2>Emploi du temps</h2>
@@ -36,7 +52,41 @@ function EmploiDuTemps() {
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500 }}
+        selectable
+        onSelectEvent={handleSelectEvent}
+        style={{ height: 500 }}
       />
+      {selectedEvent && (
+        <div className="modal">
+          <h3>Modifier l'événement</h3>
+          <p>
+            <label>Titre:</label>
+            <input
+              type="text"
+              value={selectedEvent.title}
+              onChange={(e) => setSelectedEvent({ ...selectedEvent, title: e.target.value })}
+            />
+          </p>
+          <p>
+            <label>Date de début:</label>
+            <input
+              type="datetime-local"
+              value={moment(selectedEvent.start).format('YYYY-MM-DDTHH:mm')}
+              onChange={(e) => setSelectedEvent({ ...selectedEvent, start: moment(e.target.value).toDate() })}
+            />
+          </p>
+          <p>
+            <label>Date de fin:</label>
+            <input
+              type="datetime-local"
+              value={moment(selectedEvent.end).format('YYYY-MM-DDTHH:mm')}
+              onChange={(e) => setSelectedEvent({ ...selectedEvent, end: moment(e.target.value).toDate() })}
+            />
+          </p>
+          <button onClick={handleCloseModal}>Annuler</button>
+          <button onClick={() => handleSaveEvent(selectedEvent)}>Enregistrer</button>
+        </div>
+      )}
     </div>
   );
 }
