@@ -45,7 +45,7 @@ function EmploiDuTemps() {
 
   return (
     <div>
-      <h2>Emploi du temps</h2>
+      <h4>Agenda</h4>
       <Calendar
         localizer={localizer}
         events={events}
