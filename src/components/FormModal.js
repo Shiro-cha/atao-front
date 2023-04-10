@@ -45,7 +45,7 @@ function EventForm({ addEvent }) {
     api.post("/get-coloc").then((response) => {
       setUsers(response.data);
 
-   users.forEach((user) => {
+   response.data.forEach((user) => {
     console.log(user);
     setOptions([...options,{ label: `${user.nom} ${user.prenom}`, value: user._id.toString() }]);
   });
