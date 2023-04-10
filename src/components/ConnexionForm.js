@@ -15,7 +15,7 @@ function ConnexionForm() {
     event.preventDefault();
     api.post('/auth-user', {
       email: email,
-      password: password
+      mot_de_passe: password
     })
     .then(response => {
       // handle success
