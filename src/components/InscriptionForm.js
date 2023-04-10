@@ -1,9 +1,50 @@
+import {useState} from "react";
+import axios from "axios";
 import {Link} from "react-router-dom";
+import Toast from "./Toast";
+
+import baseUrl from "../config/baseUrl";
+
+let api = axios.create(baseUrl)
 
 function InscriptionForm() {
+
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [sexe, setSexe] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [password_confim, password_confim] = useState("");
+
+  const [openToast, setOpenToast] = useState(false);
+  const [typeToast, setTypeToast] = useState("success");
+
+  const handleCloseToast = (evt) => {
+
+      setOpenToast(false);
+
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = { nom:nom, prenom:prenom, sexe:sexe, email:email ,phone:phone,password:password, contact:contact};
+    api.post("/create-user",data).then(function({data}){
+
+      setTypeToast("success");
+      setOpenToast(true)
+
+    }).catch(function(err){
+
+      setTypeToast("error");
+      setOpenToast(true)
+
+    })
+  };
+
   return (
     <>
-
+    <Toast open={openToast} handleClose={handleCloseToast} type={typeToast} />
     <form className="form">
 
         <div className="card-body">
@@ -18,7 +59,8 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Nom" name="identifiant" type="text"  value=""/>
+                    <input placeholder="Nom" name="identifiant" type="text"  value={nom}
+              onChange={(event) => setNom(event.target.value)}/>
                 </div>
 
             </div>
@@ -32,7 +74,8 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Prénom(s)..." name="identifiant" type="text"  value="" />
+                    <input placeholder="Prénom(s)..." name="identifiant" type="text"  value={prenom}
+              onChange={(event) => setPrenom(event.target.value)} />
                 </div>
 
             </div>
@@ -47,7 +90,8 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <select name="Sexe" id="cars">
+                    <select name="Sexe" id="cars"
+              onChange={(event) => setSexe(event.target.value)}>
                             <option value="" disabled selected hidden>Sexe</option>
                             <option value="Homme">Homme</option>
                             <option value="Femme">Femme</option>
@@ -66,7 +110,8 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="E-mail" name="identifiant" type="email"  value="" />
+                    <input placeholder="E-mail" name="identifiant" type="email"  value="" value={email}
+              onChange={(event) => setEmail(event.target.value)}/>
                 </div>
 
             </div>
@@ -80,7 +125,8 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Téléphone" name="identifiant" type="text"  value="" />
+                    <input placeholder="Téléphone" name="identifiant" type="text"  value="" value={phone}
+              onChange={(event) => setPhone(event.target.value)} />
                 </div>
 
             </div>
@@ -94,7 +140,10 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Mot de passe " name="identifiant" type="text"  value="" />
+                    <input placeholder="Mot de passe " name="identifiant" type="text"  value=""
+                    value={password}
+              onChange={(event) => setPassword(event.target.value)}
+                    />
                 </div>
 
             </div>
@@ -107,7 +156,10 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Confirmation mot de passe" name="identifiant" type="text"  value="" />
+                    <input placeholder="Confirmation mot de passe" name="identifiant" type="text"
+                    value={password_confim}
+              onChange={(event) => setPassword_confirm(event.target.value)}
+                    />
                 </div>
 
             </div>
