@@ -47,6 +47,7 @@ function EventForm({ addEvent }) {
   }, []);
   
   const options = users.map((user) => {
+    console.log(user);
     return { label: `${user.nom} ${user.prenom}`, value: user._id };
   });
 
