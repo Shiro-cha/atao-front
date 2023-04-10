@@ -6,10 +6,11 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import NoColoc from './NoColoc';
 
 
 
-const roommateList = [
+/**const roommateList = [
   {
     name: 'Alice',
   },
@@ -19,12 +20,15 @@ const roommateList = [
   {
     name: 'Charlie',
   },
-];
+];**/
+
+const roommateList = []
 
 export default function ColocComponent() {
 
-
-  return (
+    if(roommateList && roommateList.length  > 0){
+    
+        return (
   <main  id="main" className="main">
     <Card >
       {roommateList.map((roommate, index) => (
@@ -43,5 +47,18 @@ export default function ColocComponent() {
     </Card>
     </main>
   );
+    
+    }else{
+    
+    return (
+        <main  id="main" className="main">
+        
+        < NoColoc/>
+        </main>
+    )
+    
+    }
+
+  
 }
 
