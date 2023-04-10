@@ -31,6 +31,7 @@ function EventForm({ addEvent }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
+        className="w-100 mt-2"
       />
       </div>
       <div className="col-12">
@@ -41,6 +42,7 @@ function EventForm({ addEvent }) {
         value={date}
         onChange={(e) => setDate(e.target.value)}
         required
+        className="w-100 mt-2"
       />
       </div>
       <div className="col-12">
@@ -51,10 +53,11 @@ function EventForm({ addEvent }) {
         value={time}
         onChange={(e) => setTime(e.target.value)}
         required
+        className="w-100 mt-2"
       />
       </div>
       <div className="col-12">
-      <Button type="submit" variant="contained">Ajouter</Button>
+      <Button type="submit" variant="contained" className="w-100 mt-2">Ajouter</Button>
       </div>
       </div>
     </form>
