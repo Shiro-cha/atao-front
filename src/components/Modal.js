@@ -35,7 +35,7 @@ export default function MyModal({open,handleClose}) {
           margin: '0 auto',
         }}
       >
-       <Fade in={true}>
+       <Fade in={open}>
        
        <Card sx={{
             background:"#ffffff",
