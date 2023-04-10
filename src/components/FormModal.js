@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TextFieldfrom '@mui/material/TextField';
-import Button '@mui/material/Button';
+import TextFieldfrom from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import moment from 'moment';
 
 function EventForm({ addEvent }) {
