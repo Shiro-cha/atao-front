@@ -140,7 +140,7 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Mot de passe " name="identifiant" type="text"  value=""
+                    <input placeholder="Mot de passe " name="identifiant" type="password"  value=""
                     value={password}
               onChange={(event) => setPassword(event.target.value)}
                     />
@@ -156,7 +156,7 @@ function InscriptionForm() {
                     </span>
                 </div>
                 <div className="col-md-10 nov-group-input">
-                    <input placeholder="Confirmation mot de passe" name="identifiant" type="text"
+                    <input placeholder="Confirmation mot de passe" name="identifiant" type="password"
                     value={password_confim}
               onChange={(event) => setPassword_confirm(event.target.value)}
                     />
