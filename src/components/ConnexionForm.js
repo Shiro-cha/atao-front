@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 
 import baseUrl from "../config/baseUrl";
 
@@ -10,6 +10,8 @@ function ConnexionForm() {
 
      const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
+  const navigate = useNavigate();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -17,9 +19,11 @@ function ConnexionForm() {
       email: email,
       mot_de_passe: password
     })
-    .then(response => {
+    .then({data} => {
       // handle success
-      console.log(response);
+      console.log(data);
+      navigate(`/taches?${data._id.toString()}`);
+      
     })
     .catch(error => {
       // handle error
