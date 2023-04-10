@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@mui/styles';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -7,13 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+
 
 const roommateList = [
   {
@@ -28,10 +22,10 @@ const roommateList = [
 ];
 
 export default function ColocComponent() {
-  const classes = useStyles();
+
 
   return (
-    <List className={classes.root}>
+    <List >
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start">
