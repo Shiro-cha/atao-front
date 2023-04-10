@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Button,
-  Skeleton,
-  TextField
-} from '@mui/material';
+ 
+import  Table from '@mui/material/Table';
+import  TableBody from '@mui/material/TableCell';
+import  TableCell from '@mui/material';
+import  TableContainer from '@mui/material/TableContainer';
+import  TableHead from '@mui/material/TableHead';
+import  TableRow from '@mui/material/TableRow';
+import  Paper from '@mui/material/Paper';
+import  Button from '@mui/material/Button';
+import  Skeleton from '@mui/material/Skeleton';
+import  TextField from '@mui/material/TextField';
+
 
 const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 /**const data = [
