@@ -13,8 +13,32 @@ import {
 } from '@mui/material';
 
 const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+const data = [
+  {
+    name: 'Cours de mathématiques',
+    Lundi: '9h - 11h',
+    Mardi: '14h - 16h',
+    Mercredi: '9h - 11h',
+    Jeudi: '14h - 16h',
+    Vendredi: '9h - 11h',
+    Samedi: '',
+    Dimanche: ''
+  },
+  {
+    name: 'Cours de français',
+    Lundi: '14h - 16h',
+    Mardi: '9h - 11h',
+    Mercredi: '14h - 16h',
+    Jeudi: '9h - 11h',
+    Vendredi: '14h - 16h',
+    Samedi: '',
+    Dimanche: ''
+  },
+  // plus de lignes pour d'autres cours
+];
 
-function TableEmploiDuTemps({ data, onUpdate }) {
+
+function TableEmploiDuTemps({  onUpdate }) {
   const [isEditMode, setIsEditMode] = useState(false);
   const [modifiedData, setModifiedData] = useState(data);
 
