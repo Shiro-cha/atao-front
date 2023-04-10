@@ -8,23 +8,54 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import moment from 'moment';
 
+//axios
+import axios from "axios";
+
 import IconButton  from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 import FormModal from "./FormModal";
+import Toast from "./Toast";
+
+
+//baseUrl
+import baseUrl from "../config/baseUrl";
+
+let api = axios.create(baseUrl);
 
 export default function MyModal({open,handleClose}) {
 
     const [events, setEvents] = useState([]);
+    const [openToast, setOpenToast] = useState(false);
+    const [typeToast, setTypeToast] = useState("success");
+    
+    const handleCloseToast = (evt) => {
+        
+        setOpenToast(false);
+    
+    }
 
-    const addEvent = (title, start, end) => {
+    const addEvent =  (title, start, end) => {
     const newEvent = { title, start, end };
     setEvents([...events, newEvent]);
+    
+    api.post("/create-tache",newEvent).then(function({data}){
+    
+       
+        setTypeToast("success")
+         setOpenToast(true)
+    }).catch(function(err){
+    
+        setTypeToast("error")
+         setOpenToast(true)
+    });
+        
   };
 
     return(
     
     <>
+    <Toast open={openToast} handleClose= type={typeToast} />
     <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
