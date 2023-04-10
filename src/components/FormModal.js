@@ -16,6 +16,7 @@ function EventForm({ addEvent }) {
   const [time, setTime] = useState('');
   
   const [users, setUsers] = useState([]);
+  const [options, setOptions] = useState([]);
 
   
  
@@ -43,14 +44,16 @@ function EventForm({ addEvent }) {
   useEffect(() => {
     api.post("/get-coloc").then((response) => {
       setUsers(response.data);
+
+   users.forEach((user) => {
+    console.log(user);
+    setOptions([...options,{ label: `${user.nom} ${user.prenom}`, value: user._id.toString() }]);
+  });
+      
     });
   }, []);
   
-  let options = [];
-   users.map((user) => {
-    console.log(user);
-    options = [...options,{ label: `${user.nom} ${user.prenom}`, value: user._id.toString() }];
-  });
+  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -93,6 +96,7 @@ function EventForm({ addEvent }) {
       displayValue="name"
       onSelect={onSelect}
       onRemove={onRemove}
+      isObject={true}
       className="w-100 mt-2"
     />
       </div>
