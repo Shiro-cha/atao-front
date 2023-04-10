@@ -15,7 +15,12 @@ import FormModal from "./FormModal";
 
 export default function MyModal({open,handleClose}) {
 
-    
+    const [events, setEvents] = useState([]);
+
+    const addEvent = (title, start, end) => {
+    const newEvent = { title, start, end };
+    setEvents([...events, newEvent]);
+  };
 
     return(
     
@@ -62,8 +67,8 @@ export default function MyModal({open,handleClose}) {
           
           <CardContent className="card-body">
           
-          FormModal
-          <FormModal/>
+          <FormModal addEvent={addEvent}/>
+          
           </CardContent>
        </Card>
       

@@ -8,13 +8,7 @@ function EventForm({ addEvent }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   
-  
-  const [events, setEvents] = useState([]);
-
-    const addEvent = (title, start, end) => {
-    const newEvent = { title, start, end };
-    setEvents([...events, newEvent]);
-  };
+ 
     
 
   const handleSubmit = (e) => {
