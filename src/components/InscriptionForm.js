@@ -15,7 +15,7 @@ function InscriptionForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [password_confim, password_confim] = useState("");
+  const [password_confim, setPassword_confirm] = useState("");
 
   const [openToast, setOpenToast] = useState(false);
   const [typeToast, setTypeToast] = useState("success");
