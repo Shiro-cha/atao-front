@@ -7,6 +7,8 @@ import DialogActions from "@mui/material/DialogActions";
 import Typography  from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
+import SearchColoc from "./SeachColoc"
+
 const NoRoommate = () => {
   const [openJoinDialog, setOpenJoinDialog] = useState(false);
   const [openCreateDialog, setOpenCreateDialog] = useState(false);
@@ -47,7 +49,7 @@ const NoRoommate = () => {
       <Dialog open={openJoinDialog} onClose={handleJoinDialogClose}>
         <DialogTitle>Recherche de colocataire</DialogTitle>
         <DialogContent>
-          {/* Contenu de la boîte de dialogue de recherche */}
+          <SearchColoc/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleJoinDialogClose} color="primary">
