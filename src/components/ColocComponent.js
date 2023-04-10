@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '@mui/material/Card';
+import Paper from '@mui/material/Paper';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
@@ -30,7 +30,7 @@ export default function ColocComponent() {
     
         return (
   <main  id="main" className="main">
-    <Card >
+    <Paper >
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start" button>
@@ -44,7 +44,7 @@ export default function ColocComponent() {
           {index !== roommateList.length - 1 && <Divider variant="inset" component="li" />}
         </React.Fragment>
       ))}
-    </Card>
+    </Paper>
     </main>
   );
     
