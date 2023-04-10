@@ -31,6 +31,15 @@ function EventForm({ addEvent }) {
     setTime('');
   };
   
+  function onSelect(selectedList, selectedItem) {
+    console.log(selectedList);
+  }
+
+  function onRemove(selectedList, removedItem) {
+    console.log(selectedList);
+  }
+
+  
   useEffect(() => {
     api.post("/get-coloc").then((response) => {
       setOptions(response.data);
