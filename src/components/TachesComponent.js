@@ -117,12 +117,20 @@ function LeurTache(){
 
 function TachesComponent() {
     const [tachename,setTacheName]= useState("mestache");
+    const [openModal,setOpenModal]= useState(false);
+    
 
 
     function handleClick(type){
         setTacheName(type);
     
-    }    
+    }  
+    function handleOpenModal(evt){
+    setOpenModal(true)
+    }
+    function handleCloseModal(evt){
+    setOpenModal(false)
+    }  
     
   return (
     <>
@@ -146,7 +154,9 @@ function TachesComponent() {
                   </li>
 
                   <li className="nav-item">
-                    <button className="btn-modif" data-bs-toggle="tab" data-bs-target="#profile-edit">Ajouter</button>
+                    <button className="btn-modif" data-bs-toggle="tab" data-bs-target="#profile-edit"
+                    onClick={handleOpenModal}
+                    >Ajouter</button>
                   </li>
 
 
@@ -167,7 +177,7 @@ function TachesComponent() {
 
       </section>
       
-
+    <Modal open={openModal} handleClose={handleCloseModal}/>
     </main>
 
     </>

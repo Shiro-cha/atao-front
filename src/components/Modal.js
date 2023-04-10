@@ -10,7 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import IconButton  from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function MyModal() {
+export default function MyModal({open,handleClose}) {
 
     
 
@@ -20,7 +20,7 @@ export default function MyModal() {
     <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={true}
+        open={open}
         
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -50,7 +50,7 @@ export default function MyModal() {
             action={
               <IconButton
                 aria-label="close"
-                
+                onClick={handleClose}
               >
                 <CloseIcon />
               </IconButton>
