@@ -1,14 +1,83 @@
-import {useState} from "react";
+import {useState,useEffect} from "react";
+import Skeleton from "@mui/material/Skeleton";
 import CircularIntegration from "./Check"
 import Modal from "./Modal"
+import axios from 'axios';
+
+import baseUrl from "../config/baseUrl";
+
+let api = axios.create(baseUrl)
+
+const ListTaches = ({allTaches})=>{
+
+  if(allTaches){
+    return(
+    allTaches.map(function(value){
+
+      return(
+        <>
+
+        <td>
+          < CircularIntegration/>
+        </td>
+        <td>Mahandro sakafo</td>
+        <td>30 min</td>
+        <td >
+          <a href="" className="voir w-100 h-100">Voir</a>
+        </td>
+        <td><button className="dets">Details</button></td>
+        <td><button className="valide">Annuler</button></td>
+        </tr>
+
+        </>
+      )
+
+    })
+  )
+
+  }else{
+    return(
+    <>
+
+    <td>
+      < Skeleton width={100}/>
+    </td>
+    <td>< Skeleton width={100}/></td>
+    <td>< Skeleton width={100}/></td>
+    <td >
+      < Skeleton width={100}/>
+    </td>
+    <td>< Skeleton width={100}/></td>
+    <td>< Skeleton width={100}/></td>
+    </tr>
+
+    </>
+  )
+
+  }
+
+}
 
 function MesTache(){
-   
+  const [allTaches,setAllTaches] = useState([]);
+
+  useEffect(()=>{
+
+    api.post("/all-task").then(function({data}){
+
+      setAllTaches(data);
+
+    }).catch(function(err){
+      console.log(err);
+    })
+
+  },[])
+
    return(
     <>
-            
-                
-                
+
+
+
                    <table className="table table-hover p-3">
                   <thead>
                     <tr>
@@ -22,38 +91,15 @@ function MesTache(){
                   </thead>
                   <tbody>
                     <tr>
-                      <td>
-                        < CircularIntegration/>
-                      </td>
-                      <td>Mahandro sakafo</td>
-                      <td>30 min</td>
-                      <td >
-                        <a href="" className="voir w-100 h-100">Voir</a>
-                      </td>
-                      <td><button className="dets">Details</button></td>
-                      <td><button className="valide">Annuler</button></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input type="checkbox" className="form-controle check-tache" />
-                      </td>
-                      <td>Mianatra</td>
-                      <td>2 h</td>
-                      <td>
-                        <a href="" className="line"></a>
-                      </td>
-                      <td><button className="dets">Details</button></td>
-                      <td><button className="valide">Annuler</button></td>
-                    </tr>
-
+                    <ListTaches allTaches={allTaches}/>
                   </tbody>
                 </table>
-            
-               
+
+
      <Modal/>
-        
+
     </>
-   
+
    )
 
 
@@ -62,7 +108,7 @@ function MesTache(){
 function LeurTache(){
 
     return(
-    
+
     <>
         <table className="table table-hover p-3">
                   <thead>
@@ -104,7 +150,7 @@ function LeurTache(){
                   </tbody>
                 </table>
     </>
-   
+
    )
 
 }
@@ -118,20 +164,20 @@ function LeurTache(){
 function TachesComponent() {
     const [tachename,setTacheName]= useState("mestache");
     const [openModal,setOpenModal]= useState(false);
-    
+
 
 
     function handleClick(type){
         setTacheName(type);
-    
-    }  
+
+    }
     function handleOpenModal(evt){
     setOpenModal(true)
     }
     function handleCloseModal(evt){
     setOpenModal(false)
-    }  
-    
+    }
+
   return (
     <>
 
@@ -145,9 +191,9 @@ function TachesComponent() {
 
 
           <div className="card">
-          
+
             <div className="card-body card-profil">
-            <ul className="nav nav-tabs head-card nav-tabs-bordered">  
+            <ul className="nav nav-tabs head-card nav-tabs-bordered">
 
                   <li className="nav-item info">
                     <h3>LES TÂCHES</h3>
@@ -164,19 +210,19 @@ function TachesComponent() {
 
                     {
                     tachename==="mestache"?
-                    
+
                     <MesTache/>:
                     <LeurTache/>
-                    
-                    
+
+
                     }
-            
+
             </div>
           </div>
 
 
       </section>
-      
+
     <Modal open={openModal} handleClose={handleCloseModal}/>
     </main>
 
