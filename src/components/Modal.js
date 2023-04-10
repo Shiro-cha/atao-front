@@ -12,6 +12,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export default function MyModal({open,handleClose}) {
 
+    const addEvent = (title, start, end) => {
+    const newEvent = { title, start, end };
+    setEvents([...events, newEvent]);
+  };
     
 
     return(
