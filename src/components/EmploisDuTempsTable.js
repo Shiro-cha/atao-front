@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-/**const data = [
+const data = [
   {
     name: 'Cours de mathématiques',
     Lundi: '9h - 11h',
@@ -35,10 +35,10 @@ const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samed
     Dimanche: ''
   },
   // plus de lignes pour d'autres cours
-];**/
+];
 
 
-function TableEmploiDuTemps({ data, onUpdate }) {
+function TableEmploiDuTemps({  onUpdate }) {
   const [isEditMode, setIsEditMode] = useState(false);
   const [modifiedData, setModifiedData] = useState(data);
 
@@ -111,7 +111,14 @@ function TableEmploiDuTemps({ data, onUpdate }) {
             </TableRow>
           ))}
         </TableBody>
-        <TableContainer component={Paper}>
+        
+      </>
+    );
+  };
+  
+  return(
+  
+  <TableContainer component={Paper}>
       <Table>
         {renderTable()}
       </Table>
@@ -126,9 +133,9 @@ function TableEmploiDuTemps({ data, onUpdate }) {
         </div>
       )}
     </TableContainer>
-      </>
-    );
-  };
+  
+  );
+  
 
   
 }
