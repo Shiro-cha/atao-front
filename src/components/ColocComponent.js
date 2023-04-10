@@ -25,6 +25,7 @@ export default function ColocComponent() {
 
 
   return (
+  <main  id="main" className="main">
     <List >
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
@@ -40,6 +41,7 @@ export default function ColocComponent() {
         </React.Fragment>
       ))}
     </List>
+    </main>
   );
 }
 
