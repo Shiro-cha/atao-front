@@ -28,39 +28,39 @@ export default function MyModal({open,handleClose}) {
     const [events, setEvents] = useState([]);
     const [openToast, setOpenToast] = useState(false);
     const [typeToast, setTypeToast] = useState("success");
-    
+
     const handleCloseToast = (evt) => {
-        
+
         setOpenToast(false);
-    
+
     }
 
     const addEvent =  (title, start, end) => {
     const newEvent = { title, start, end };
     setEvents([...events, newEvent]);
-    
-    api.post("/create-tache",newEvent).then(function({data}){
-    
-       
+
+    api.post("/create-task",newEvent).then(function({data}){
+
+
         setTypeToast("success")
          setOpenToast(true)
     }).catch(function(err){
-    
+
         setTypeToast("error")
          setOpenToast(true)
     });
-        
+
   };
 
     return(
-    
+
     <>
     <Toast open={openToast} handleClose={handleCloseToast} type={typeToast} />
     <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
-        
+
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -75,7 +75,7 @@ export default function MyModal({open,handleClose}) {
         }}
       >
        <Fade in={open}>
-       
+
        <Card sx={{
             background:"#ffffff",
             width:"100%",
@@ -95,14 +95,14 @@ export default function MyModal({open,handleClose}) {
               </IconButton>
             }
           />
-          
+
           <CardContent className="card-body">
-          
+
           <FormModal addEvent={addEvent}/>
-          
+
           </CardContent>
        </Card>
-      
+
       </Fade>
       </Modal>
     </>
