@@ -87,12 +87,7 @@ function TableEmploiDuTemps({ data, onUpdate }) {
             </TableRow>
           ))}
         </TableBody>
-      </>
-    );
-  };
-
-  return (
-    <TableContainer component={Paper}>
+        <TableContainer component={Paper}>
       <Table>
         {renderTable()}
       </Table>
@@ -107,7 +102,11 @@ function TableEmploiDuTemps({ data, onUpdate }) {
         </div>
       )}
     </TableContainer>
-  );
+      </>
+    );
+  };
+
+  
 }
 
 export default TableEmploiDuTemps;
