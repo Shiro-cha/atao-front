@@ -45,7 +45,7 @@ function InscriptionForm() {
   return (
     <>
     <Toast open={openToast} handleClose={handleCloseToast} type={typeToast} />
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
 
         <div className="card-body">
 
