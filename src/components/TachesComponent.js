@@ -86,7 +86,7 @@ function MesTache(){
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                   
                     <ListTaches allTaches={allTaches}/>
                   </tbody>
                 </table>
@@ -106,7 +106,10 @@ function LeurTache(){
     return(
 
     <>
-        <table className="table table-hover p-3">
+
+
+
+                   <table className="table table-hover p-3">
                   <thead>
                     <tr>
                       <th></th>
@@ -118,33 +121,14 @@ function LeurTache(){
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <input type="checkbox" className="form-controle check-tache" checked={true} disabled={true}/>
-                      </td>
-                      <td>Mahandro sakafo</td>
-                      <td>30 min</td>
-                      <td >
-                        <a href="" className="voir w-100 h-100">Voir</a>
-                      </td>
-                      <td><button className="dets">Details</button></td>
-                      <td><button className="valide">Rappeler</button></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input type="checkbox" className="form-controle check-tache" disabled={true}/>
-                      </td>
-                      <td>Mianatra</td>
-                      <td>2 h</td>
-                      <td>
-                        <a href="" className="line"></a>
-                      </td>
-                      <td><button className="dets">Details</button></td>
-                      <td><button className="valide">Rappeler</button></td>
-                    </tr>
-
+                   
+                    <ListTaches allTaches={allTaches}/>
                   </tbody>
                 </table>
+
+
+     <Modal/>
+
     </>
 
    )
