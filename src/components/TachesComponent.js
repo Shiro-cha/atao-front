@@ -102,6 +102,19 @@ function MesTache(){
 }
 
 function LeurTache(){
+const [allTaches,setAllTaches] = useState([]);
+
+  useEffect(()=>{
+
+    api.post("/all-task").then(function({data}){
+
+      setAllTaches(data);
+
+    }).catch(function(err){
+      console.log(err);
+    })
+
+  },[])
 
     return(
 
