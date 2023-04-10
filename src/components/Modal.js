@@ -55,7 +55,7 @@ export default function MyModal({open,handleClose}) {
     return(
     
     <>
-    <Toast open={openToast} handleClose= type={typeToast} />
+    <Toast open={openToast} handleClose={handleCloseToast} type={typeToast} />
     <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
