@@ -37,8 +37,9 @@ const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samed
   // plus de lignes pour d'autres cours
 ];**/
 
+const data = [];
 
-function TableEmploiDuTemps({data ,onUpdate }) {
+function TableEmploiDuTemps({ onUpdate }) {
   const [isEditMode, setIsEditMode] = useState(false);
   const [modifiedData, setModifiedData] = useState(data);
 
