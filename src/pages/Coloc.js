@@ -6,7 +6,7 @@ import "../assets/css/profil.css";
 //components
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import ProfilComponent from "../components/ProfilComponent";
+import ColocComponent from "../components/ColocComponent";
 
 
 function Profil() {
@@ -15,6 +15,7 @@ function Profil() {
 
     <Header />
     <Sidebar />
+    <ColocComponent />
     
 
     </>
