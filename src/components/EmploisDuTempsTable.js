@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-const data = [
+/**const data = [
   {
     name: 'Cours de mathématiques',
     Lundi: '9h - 11h',
@@ -35,10 +35,10 @@ const data = [
     Dimanche: ''
   },
   // plus de lignes pour d'autres cours
-];
+];**/
 
 
-function TableEmploiDuTemps({  onUpdate }) {
+function TableEmploiDuTemps({ data, onUpdate }) {
   const [isEditMode, setIsEditMode] = useState(false);
   const [modifiedData, setModifiedData] = useState(data);
 
