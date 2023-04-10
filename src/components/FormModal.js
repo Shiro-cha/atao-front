@@ -23,6 +23,8 @@ function EventForm({ addEvent }) {
 
   return (
     <form onSubmit={handleSubmit}>
+    <div className="row">
+    <div className="col-12">
       <TextField
         label="Titre"
         name="title"
@@ -30,23 +32,31 @@ function EventForm({ addEvent }) {
         onChange={(e) => setTitle(e.target.value)}
         required
       />
+      </div>
+      <div className="col-12">
       <TextField
-        label="Date"
+        
         name="date"
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
         required
       />
+      </div>
+      <div className="col-12">
       <TextField
-        label="Heure"
+        
         name="time"
         type="time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
         required
       />
+      </div>
+      <div className="col-12">
       <Button type="submit" variant="contained">Ajouter</Button>
+      </div>
+      </div>
     </form>
   );
 }
