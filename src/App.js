@@ -21,13 +21,13 @@ function App() {
       <Routes>
       <Route exact path="/inscription" element={<Inscription/>}/>
       <Route exact path="/connexion" element={<Connexion/>}/>
-      <Route exact path="/profil" element={<Profil/>}/>
-      <Route exact path="/taches" element={<Taches/>}/>
-      <Route exact path="/emplois-du-temps" element={<EDT/>}/>
-      <Route exact path="/agenda" element={<Agenda/>}/>
-      <Route exact path="/coloc" element={<Coloc/>}/>
-      <Route exact path="/home" element={<Home/>}/>
-      <Route exact path="/" element={<Home/>}/>
+      <Route  path="/profil" element={<Profil/>}/>
+      <Route  path="/taches" element={<Taches/>}/>
+      <Route  path="/emplois-du-temps" element={<EDT/>}/>
+      <Route  path="/agenda" element={<Agenda/>}/>
+      <Route  path="/coloc" element={<Coloc/>}/>
+      <Route  path="/home" element={<Home/>}/>
+      <Route  path="/" element={<Home/>}/>
       </Routes>
     </BrowserRouter>
     </>

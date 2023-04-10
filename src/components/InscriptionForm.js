@@ -1,6 +1,6 @@
 import {useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import Toast from "./Toast";
 
 import baseUrl from "../config/baseUrl";
@@ -19,6 +19,8 @@ function InscriptionForm() {
 
   const [openToast, setOpenToast] = useState(false);
   const [typeToast, setTypeToast] = useState("success");
+  
+  const navigate = useNavigate();
 
   const handleCloseToast = (evt) => {
 
@@ -32,7 +34,8 @@ function InscriptionForm() {
     api.post("/create-user",data).then(function({data}){
 
       setTypeToast("success");
-      setOpenToast(true)
+      setOpenToast(true);
+      navigate("/connexion");
 
     }).catch(function(err){
 
