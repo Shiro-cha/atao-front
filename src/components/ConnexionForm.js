@@ -19,10 +19,10 @@ function ConnexionForm() {
       email: email,
       mot_de_passe: password
     })
-    .then({data} => {
+    .then(response => {
       // handle success
-      console.log(data);
-      navigate(`/taches?${data._id.toString()}`);
+      console.log(response.data);
+      navigate(`/taches?${response.data._id.toString()}`);
       
     })
     .catch(error => {
