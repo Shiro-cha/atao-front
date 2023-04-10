@@ -11,14 +11,10 @@ import moment from 'moment';
 import IconButton  from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
+import FormModal from "./FormModal";
+
 export default function MyModal({open,handleClose}) {
 
-    const [events, setEvents] = useState([]);
-
-    const addEvent = (title, start, end) => {
-    const newEvent = { title, start, end };
-    setEvents([...events, newEvent]);
-  };
     
 
     return(
@@ -66,27 +62,8 @@ export default function MyModal({open,handleClose}) {
           
           <CardContent className="card-body">
           
-          <form onSubmit={(e) => {
-        e.preventDefault();
-        const title = e.target.elements.title.value;
-        const date = e.target.elements.date.value;
-        const time = e.target.elements.time.value;
-        const start = moment(`${date} ${time}`, 'YYYY-MM-DD HH:mm').toDate();
-        const end = moment(start).add(1, 'hour').toDate();
-        addEvent(title, start, end);
-      }}>
-        <label htmlFor="title">Titre :</label>
-        <input type="text" name="title" required />
-
-        <label htmlFor="date">Date :</label>
-        <input type="date" name="date" required />
-
-        <label htmlFor="time">Heure :</label>
-        <input type="time" name="time" required />
-
-        <button type="submit">Ajouter</button>
-      </form>
-          
+          FormModal
+          <FormModal/>
           </CardContent>
        </Card>
       
