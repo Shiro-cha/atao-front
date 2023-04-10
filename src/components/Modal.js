@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import  Modal from '@mui/material/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
@@ -11,6 +12,8 @@ import IconButton  from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 export default function MyModal({open,handleClose}) {
+
+    const [events, setEvents] = useState([]);
 
     const addEvent = (title, start, end) => {
     const newEvent = { title, start, end };
