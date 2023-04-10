@@ -65,7 +65,7 @@ const NoRoommate = () => {
       </div>
       <div className="col-6">
       <Button variant="contained" color="secondary" onClick={handleCreateDialogOpen}>
-        Créer un groupe
+        Créer
       </Button>
       <Dialog open={openCreateDialog} onClose={handleCreateDialogClose}>
         <DialogTitle>Création de groupe</DialogTitle>
