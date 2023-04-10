@@ -56,7 +56,7 @@ function TableEmploiDuTemps({  onUpdate }) {
     const value = event.target.value;
     setModifiedData((prevState) =>
       prevState.map((row, i) =>
-        i === rowIndex ? { ...row, name: value } : row
+        i === rowIndex ? { ...row, [JOURS_SEMAINE[colIndex]]: value } : row
       )
     );
   };
@@ -65,7 +65,7 @@ function TableEmploiDuTemps({  onUpdate }) {
     const value = event.target.value;
     setModifiedData((prevState) =>
       prevState.map((row, i) =>
-        i === rowIndex ? { ...row, [JOURS_SEMAINE[colIndex]]: value } : row
+        i === rowIndex ? { ...row, name: value } : row
       )
     );
   };
