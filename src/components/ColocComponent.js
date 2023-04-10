@@ -29,7 +29,7 @@ export default function ColocComponent() {
     <List >
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
-          <ListItem alignItems="flex-start">
+          <ListItem alignItems="flex-start" button>
             <ListItemAvatar>
               <Avatar>{roommate.name.charAt(0)}</Avatar>
             </ListItemAvatar>
