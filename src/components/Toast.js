@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Snackbar, IconButton } from '@mui/material';
-import { Close, CheckCircle, Error } from '@mui/icons-material';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import Error from '@mui/icons-material/Error';
+import CheckCircle from '@mui/icons-material/CheckCircle';
+import Close from '@mui/icons-material/Close';
 
 const Toast = ({ open, handleClose, type }) => {
   const [message, setMessage] = useState('');
