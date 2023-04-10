@@ -1,0 +1,112 @@
+import { useState } from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+} from '@mui/material';
+
+const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
+function TableEmploiDuTemps({ data, onUpdate }) {
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [modifiedData, setModifiedData] = useState(data);
+
+  const handleSave = () => {
+    onUpdate(modifiedData);
+    setIsEditMode(false);
+  };
+
+  const handleCancel = () => {
+    setModifiedData(data);
+    setIsEditMode(false);
+  };
+
+  const handleInputChange = (event, rowIndex, colIndex) => {
+    const value = event.target.value;
+    setModifiedData((prevState) =>
+      prevState.map((row, i) =>
+        i === rowIndex ? { ...row, [JOURS_SEMAINE[colIndex]]: value } : row
+      )
+    );
+  };
+
+  const renderTable = () => {
+    if (!data || data.length === 0) {
+      return (
+        <>
+          {[...Array(5)].map((_, i) => (
+            <TableRow key={i}>
+              {[...Array(8)].map((_, j) => (
+                <TableCell key={j}>
+                  <Skeleton variant="text" />
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </>
+      );
+    }
+
+    return (
+      <>
+        <TableHead>
+          <TableRow>
+            <TableCell></TableCell>
+            {JOURS_SEMAINE.map((jour) => (
+              <TableCell key={jour} align="center">
+                {jour}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((row, rowIndex) => (
+            <TableRow key={rowIndex}>
+              <TableCell>{row.name}</TableCell>
+              {JOURS_SEMAINE.map((jour, colIndex) => (
+                <TableCell key={jour} align="center">
+                  {isEditMode ? (
+                    <TextField
+                      variant="outlined"
+                      margin="none"
+                      value={modifiedData[rowIndex][jour]}
+                      onChange={(event) => handleInputChange(event, rowIndex, colIndex)}
+                    />
+                  ) : (
+                    row[jour]
+                  )}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </>
+    );
+  };
+
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        {renderTable()}
+      </Table>
+      {isEditMode ? (
+        <div style={{ marginTop: '10px' }}>
+          <Button variant="contained" onClick={handleSave}>Sauvegarder</Button>
+          <Button variant="outlined" style={{ marginLeft: '10px' }} onClick={handleCancel}>Annuler</Button>
+        </div>
+      ) : (
+        <div style={{ marginTop: '10px' }}>
+          <Button variant="outlined" onClick={() => setIsEditMode(true)}>Modifier</Button>
+        </div>
+      )}
+    </TableContainer>
+  );
+}
+
+export default TableEmploiDuTemps;
+
