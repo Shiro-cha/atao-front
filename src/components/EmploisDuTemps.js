@@ -1,7 +1,8 @@
-import {useState} from 'react';
+import React, { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 
 const localizer = momentLocalizer(moment);
 
@@ -27,66 +28,44 @@ const events = [
 ];
 
 function EmploiDuTemps() {
-
-     const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
 
   const handleSelectEvent = (event) => {
     setSelectedEvent(event);
+    setEditDialogOpen(true);
   };
 
-  const handleCloseModal = () => {
+  const handleEditDialogClose = () => {
     setSelectedEvent(null);
-  };
-
-  const handleSaveEvent = (event) => {
-    // Enregistrer l'événement modifié dans la base de données ou dans la liste des événements
-    setSelectedEvent(null);
+    setEditDialogOpen(false);
   };
 
   return (
     <div>
-      <h4>Agenda</h4>
+      <h2>Emploi du temps</h2>
       <Calendar
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500 }}
-        selectable
         onSelectEvent={handleSelectEvent}
-        style={{ height: 500 }}
       />
-      {selectedEvent && (
-        <div className="modal">
-          <h3>Modifier l'événement</h3>
-          <p>
-            <label>Titre:</label>
-            <input
-              type="text"
-              value={selectedEvent.title}
-              onChange={(e) => setSelectedEvent({ ...selectedEvent, title: e.target.value })}
-            />
-          </p>
-          <p>
-            <label>Date de début:</label>
-            <input
-              type="datetime-local"
-              value={moment(selectedEvent.start).format('YYYY-MM-DDTHH:mm')}
-              onChange={(e) => setSelectedEvent({ ...selectedEvent, start: moment(e.target.value).toDate() })}
-            />
-          </p>
-          <p>
-            <label>Date de fin:</label>
-            <input
-              type="datetime-local"
-              value={moment(selectedEvent.end).format('YYYY-MM-DDTHH:mm')}
-              onChange={(e) => setSelectedEvent({ ...selectedEvent, end: moment(e.target.value).toDate() })}
-            />
-          </p>
-          <button onClick={handleCloseModal}>Annuler</button>
-          <button onClick={() => handleSaveEvent(selectedEvent)}>Enregistrer</button>
-        </div>
-      )}
+      <Dialog open={editDialogOpen} onClose={handleEditDialogClose}>
+        <DialogTitle>Éditer l'événement</DialogTitle>
+        {selectedEvent && (
+          <DialogContent>
+            <p>Titre : {selectedEvent.title}</p>
+            <p>Date de début : {selectedEvent.start.toString()}</p>
+            <p>Date de fin : {selectedEvent.end.toString()}</p>
+            {/* Ajoutez ici un formulaire pour éditer l'événement */}
+          </DialogContent>
+        )}
+        <DialogActions>
+          <Button onClick={handleEditDialogClose}>Fermer</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
