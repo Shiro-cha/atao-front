@@ -8,51 +8,47 @@ import baseUrl from "../config/baseUrl";
 
 let api = axios.create(baseUrl)
 
-const ListTaches = ({allTaches})=>{
+const ListTaches = ({ allTaches }) => {
 
-  if(allTaches){
-    return(
-    allTaches.map(function(value){
+  if (allTaches) {
+    return (
+      allTaches.map(function (value) {
 
-      return(
-        <>
+        return (
+          <tr key={value.id}>
+            <td>
+              <CircularIntegration />
+            </td>
+            <td>{value.taskName}</td>
+            <td>30 min</td>
+            <td>
+              <a href="/" className="voir w-100 h-100">Voir</a>
+            </td>
+            <td><button className="dets">Details</button></td>
+            <td><button className="valide">Annuler</button></td>
+          </tr>
 
+        )
+
+      })
+    )
+
+  } else {
+    return (
+      <tr>
         <td>
-          < CircularIntegration/>
+          <Skeleton width={100} />
         </td>
-        <td>Mahandro sakafo</td>
-        <td>30 min</td>
-        <td >
-          <a href="" className="voir w-100 h-100">Voir</a>
+        <td><Skeleton width={100} /></td>
+        <td><Skeleton width={100} /></td>
+        <td>
+          <Skeleton width={100} />
         </td>
-        <td><button className="dets">Details</button></td>
-        <td><button className="valide">Annuler</button></td>
-        </tr>
+        <td><Skeleton width={100} /></td>
+        <td><Skeleton width={100} /></td>
+      </tr>
 
-        </>
-      )
-
-    })
-  )
-
-  }else{
-    return(
-    <>
-
-    <td>
-      < Skeleton width={100}/>
-    </td>
-    <td>< Skeleton width={100}/></td>
-    <td>< Skeleton width={100}/></td>
-    <td >
-      < Skeleton width={100}/>
-    </td>
-    <td>< Skeleton width={100}/></td>
-    <td>< Skeleton width={100}/></td>
-    </tr>
-
-    </>
-  )
+    )
 
   }
 
