@@ -51,7 +51,7 @@ export default function ColocComponent() {
               <Avatar>{roommate.nom.charAt(0)}</Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary={roommate.nom}
+              primary={roommate._id.toString()==cookies.users?`${roommate.nom} (moi)`:roommate.nom}
             />
           </ListItem>
           {index !== roommateList.length - 1 && <Divider variant="inset" component="li" />}
