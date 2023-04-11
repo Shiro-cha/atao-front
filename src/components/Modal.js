@@ -37,13 +37,14 @@ export default function MyModal({open,handleClose}) {
 
     const addEvent =  (title, start, end,task_members) => {
     const newEvent = { title:title, start:start, end:end ,task_members:end};
-    setEvents([...events, newEvent]);
-
+    
+    console.log(newEvent);
     api.post("/create-task",newEvent).then(function({data}){
 
 
         setTypeToast("success")
          setOpenToast(true)
+         setEvents([...events, newEvent]);
     }).catch(function(err){
 
         setTypeToast("error")
