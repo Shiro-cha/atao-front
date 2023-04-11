@@ -46,7 +46,7 @@ function EventForm({ addEvent }) {
       setUsers(response.data);
 
    response.data.forEach((user) => {
-    setOptions([...options,{ label: `${user.nom} ${user.prenom}`, value: user._id.toString() }]);
+    setOptions([...options,{ name: `${user.nom} ${user.prenom}`, id: user._id.toString() }]);
   });
   console.log(options);
       
