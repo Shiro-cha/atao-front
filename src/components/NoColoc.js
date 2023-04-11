@@ -9,7 +9,10 @@ import TextField from "@mui/material/TextField";
 
 import SearchColoc from "./SeachColoc"
 
-const NoRoommate = () => {
+const NoRoommate = ({user_id}) => {
+
+   
+
   const [openJoinDialog, setOpenJoinDialog] = useState(false);
   const [openCreateDialog, setOpenCreateDialog] = useState(false);
   const [colocataire, setColocataire] = useState("");

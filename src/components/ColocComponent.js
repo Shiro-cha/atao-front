@@ -16,17 +16,7 @@ import baseUrl from "../config/baseUrl";
 
 let api = axios.create(baseUrl);
 
-const roommateList = [
-  {
-    name: 'Alice',
-  },
-  {
-    name: 'Bob',
-  },
-  {
-    name: 'Charlie',
-  },
-];
+
 
 //const roommateList = []
 
