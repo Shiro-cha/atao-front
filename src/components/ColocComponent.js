@@ -6,6 +6,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import NoColoc from './NoColoc';
 
@@ -63,12 +64,18 @@ export default function ColocComponent() {
         return (
   <main  id="main" className="main">
     <Paper className="p-3">
+     <div className="row">
+      <div className="col-6">
     <Typography className="m-5 text-dark" sx={{color:"#444444"}} ref={textRef}>
     {`Identifiant coloc: ${cookies.coloc}` }
     </Typography>
+     </div>
+      <div className="col-6">
     <button onClick={handleCopyClick}>
         {isCopied ? 'Copié !' : 'Copier'}
       </button>
+       </div>
+      </div>
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start" button>
