@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
+import Typography from "@mui/material/Typography";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 
@@ -43,7 +44,7 @@ function EmploiDuTemps() {
 
   return (
     <div>
-      <h2>Emploi du temps</h2>
+      <Typography>Agenda</hTypography>
       <Calendar
         localizer={localizer}
         events={events}
