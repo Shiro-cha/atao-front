@@ -17,7 +17,7 @@ const ListTaches = ({ allTaches }) => {
             <td>
               <CircularIntegration />
             </td>
-            <td>{value.taskName}</td>
+            <td>{value.titre}</td>
             <td>30 min</td>
             <td>
               <a href="/" className="voir w-100 h-100">Voir</a>
