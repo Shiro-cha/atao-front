@@ -23,7 +23,7 @@ const ListTaches = ({ allTaches }) => {
               <a href="/" className="voir w-100 h-100">Voir</a>
             </td>
             <td><button className="dets">Details</button></td>
-            <td><button className="valide">Annuler</button></td>
+            <td><button className="valide">{section=="mes"?"Annuler":"Rappeler"}</button></td>
           </tr>
         )
       })
@@ -85,7 +85,7 @@ function MesTache(){
                   </thead>
                   <tbody>
                    
-                    <ListTaches allTaches={allTaches}/>
+                    <ListTaches allTaches={allTaches} section={"mes"}/>
                   </tbody>
                 </table>
 
@@ -133,7 +133,7 @@ const [allTaches,setAllTaches] = useState([]);
                   </thead>
                   <tbody>
                    
-                    <ListTaches allTaches={allTaches}/>
+                    <ListTaches allTaches={allTaches} section={"leur"}/>
                   </tbody>
                 </table>
 
