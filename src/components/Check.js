@@ -7,7 +7,15 @@ import Fab from '@mui/material/Fab';
 import CheckIcon from '@mui/icons-material/Check';
 import RadioUncheked from '@mui/icons-material/RadioButtonUncheckedRounded';
 
-export default function CircularIntegration() {
+//axios
+import axios from "axios";
+
+//baseUrl
+import baseUrl from "../config/baseUrl";
+
+let api = axios.create(baseUrl);
+
+export default function CircularIntegration({etat}) {
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const timer = React.useRef();
@@ -31,10 +39,19 @@ export default function CircularIntegration() {
     if (!loading) {
       setSuccess(false);
       setLoading(true);
-      timer.current = window.setTimeout(() => {
-        setSuccess(true);
+      api.post("/validate-task").then(function({data}){
+      
+      setSuccess(true);
         setLoading(false);
-      }, 2000);
+      
+      }).catch(function(err){
+      
+      setSuccess(false);
+        setLoading(false);
+      
+      })
+        
+      
     }
   };
 
@@ -47,7 +64,7 @@ export default function CircularIntegration() {
           sx={buttonSx}
           onClick={handleButtonClick}
         >
-          {success ? <CheckIcon /> : <RadioUncheked />}
+          {success || etat=="complete" ? <CheckIcon /> : <RadioUncheked />}
         </Fab>
         {loading && (
           <CircularProgress
