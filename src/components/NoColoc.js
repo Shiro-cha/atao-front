@@ -8,6 +8,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Typography  from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import SearchColoc from "./SeachColoc";
 
@@ -17,7 +18,7 @@ import baseUrl from "../config/baseUrl";
 
 let api = axios.create(baseUrl)
 
-const NoRoommate = ({user_id}) => {
+const NoRoommate = ({user_id,isLoading}) => {
     const [openToast, setOpenToast] = useState(false);
     const [typeToast, setTypeToast] = useState("success");
 
@@ -77,6 +78,8 @@ const NoRoommate = ({user_id}) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh" }}>
+    {
+    isLoading? <CircularProgress/>:
        <Toast open={openToast} handleClose={handleCloseToast} type={typeToast} />
       <Typography variant="p" sx={{color:"#333333"}}>Vous n'avez pas encore de colocataire</Typography>
       <div className="mt-5 row">
@@ -119,6 +122,7 @@ const NoRoommate = ({user_id}) => {
       </Dialog>
       </div>
       </div>
+      }
     </div>
   );
 };

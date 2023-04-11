@@ -26,6 +26,7 @@ export default function ColocComponent() {
     const textRef = useRef(null);
      const [cookies,setCookie] = useCookies(['users','coloc']);
      const [isCopied, setIsCopied] = useState(false);
+     const [isLoading, setIsLoading] = useState(false);
 
     const [roommateList,setRoommateList] = useState([]);
     
@@ -47,12 +48,13 @@ export default function ColocComponent() {
   };
 
     useEffect(() => {
+    setIsLoading(true)
     api.post("/get-coloc",{
     id_coloc:cookies.coloc
     }).then((response) => {
     
     setRoommateList(response.data)
-      
+      setIsLoading(false)
   });
   
       
@@ -95,7 +97,7 @@ export default function ColocComponent() {
     return (
         <main  id="main" className="main">
         
-        < NoColoc/>
+        < NoColoc isLoading={isLoading}/>
         </main>
     )
     
