@@ -1,4 +1,4 @@
-import React from 'react';
+import {useEffect,useState} from 'react';
 
 import Paper from '@mui/material/Paper';
 import ListItem from '@mui/material/ListItem';
@@ -8,7 +8,13 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import NoColoc from './NoColoc';
 
+//axios
+import axios from "axios";
 
+//baseUrl
+import baseUrl from "../config/baseUrl";
+
+let api = axios.create(baseUrl);
 
 const roommateList = [
   {
@@ -26,6 +32,19 @@ const roommateList = [
 
 export default function ColocComponent() {
 
+    const [roommateList,setRoommateList] = useState([]);
+
+    useEffect(() => {
+    api.post("/get-coloc").then((response) => {
+    
+    setRoommateList(response.data)
+      
+  });
+  
+      
+    });
+  }, []);
+
     if(roommateList && roommateList.length  > 0){
     
         return (
@@ -35,10 +54,10 @@ export default function ColocComponent() {
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start" button>
             <ListItemAvatar>
-              <Avatar>{roommate.name.charAt(0)}</Avatar>
+              <Avatar>{roommate.nom.charAt(0)}</Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary={roommate.name}
+              primary={roommate.nom}
             />
           </ListItem>
           {index !== roommateList.length - 1 && <Divider variant="inset" component="li" />}
