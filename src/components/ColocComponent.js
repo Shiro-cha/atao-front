@@ -42,7 +42,7 @@ export default function ColocComponent() {
   });
   
       
-    });
+    
   }, []);
 
     if(roommateList && roommateList.length  > 0){
