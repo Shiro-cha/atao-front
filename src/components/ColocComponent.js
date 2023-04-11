@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-
+import { useCookies } from 'react-cookie';
 import Paper from '@mui/material/Paper';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -21,11 +21,15 @@ let api = axios.create(baseUrl);
 //const roommateList = []
 
 export default function ColocComponent() {
+    
+     const [cookies,setCookie] = useCookies(['users','coloc']);
 
     const [roommateList,setRoommateList] = useState([]);
 
     useEffect(() => {
-    api.post("/get-coloc").then((response) => {
+    api.post("/get-coloc",{
+    id_coloc:cookies.coloc
+    }).then((response) => {
     
     setRoommateList(response.data)
       

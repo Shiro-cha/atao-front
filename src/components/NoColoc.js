@@ -27,7 +27,7 @@ const NoRoommate = ({user_id}) => {
 
     }
 
-   const [cookies] = useCookies(['users']);
+   const [cookies,setCookie] = useCookies(['users','coloc']);
   const [openJoinDialog, setOpenJoinDialog] = useState(false);
   const [openCreateDialog, setOpenCreateDialog] = useState(false);
   const [colocataire, setColocataire] = useState("");
@@ -63,6 +63,7 @@ const NoRoommate = ({user_id}) => {
     .then(response => {
       setTypeToast("success")
          setOpenToast(true)
+         setCookie('coloc',response.data._id.toString());
          setOpenCreateDialog(false);
       
     })
