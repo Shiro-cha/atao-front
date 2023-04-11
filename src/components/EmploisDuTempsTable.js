@@ -13,7 +13,7 @@ import  TextField from '@mui/material/TextField';
 
 
 const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-/**const data = [
+const data = [
   {
     name: 'Cours de mathématiques',
     Lundi: '9h - 11h',
@@ -35,9 +35,9 @@ const JOURS_SEMAINE = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samed
     Dimanche: ''
   },
   // plus de lignes pour d'autres cours
-];**/
+];
 
-const data = [];
+
 
 function TableEmploiDuTemps({ onUpdate }) {
   const [isEditMode, setIsEditMode] = useState(false);
