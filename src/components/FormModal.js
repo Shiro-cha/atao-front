@@ -35,7 +35,7 @@ function EventForm({ addEvent }) {
   };
   
   function onSelect(selectedList, selectedItem) {
-    setTask_members(selectedList)
+    setTask_members([...task_members,selectedItem])
   }
 
   function onRemove(selectedList, removedItem) {
