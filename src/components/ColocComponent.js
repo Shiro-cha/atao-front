@@ -42,7 +42,7 @@ export default function ColocComponent() {
         setIsCopied(true);
         setTimeout(() => {
           setIsCopied(false);
-        }, 3000); // réinitialiser l'état de copie après 3 secondes
+        }, 6000); // réinitialiser l'état de copie après 3 secondes
       
   };
 
