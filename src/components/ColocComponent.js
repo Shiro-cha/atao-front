@@ -32,7 +32,7 @@ export default function ColocComponent() {
      const text = textRef.current.textContent;
 
     const textField = document.createElement('textarea');
-    textField.innerText = text;
+    textField.innerText = cookies.coloc;
     document.body.appendChild(textField);
     textField.select();
     document.execCommand('copy');
