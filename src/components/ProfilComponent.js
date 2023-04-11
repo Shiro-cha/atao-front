@@ -1,7 +1,11 @@
 import user3 from "../assets/images/user-3.jpg";
+import { useCookies } from 'react-cookie';
 
 
 function ProfilComponent() {
+    const [cookies, setCookie] = useCookies(['users',"username","coloc","contact"]);
+    
+
   return (
     <>
 
@@ -35,17 +39,17 @@ function ProfilComponent() {
 
                     <div className="row">
                       <div className="col-lg-3 col-md-4 label ">Titre:</div>
-                      <div className="col-lg-9 col-md-8 text-modif">Docteur</div>
+                      <div className="col-lg-9 col-md-8 text-modif">Coloc</div>
                     </div>
 
                     <div className="row">
                       <div className="col-lg-3 col-md-4 label ">Nom:</div>
-                      <div className="col-lg-9 col-md-8 text-modif"> Anderson</div>
+                      <div className="col-lg-9 col-md-8 text-modif">{cookies.username}</div>
                     </div>
 
                     <div className="row">
                       <div className="col-lg-3 col-md-4 label ">Prénom:</div>
-                      <div className="col-lg-9 col-md-8 text-modif">Kevin </div>
+                      <div className="col-lg-9 col-md-8 text-modif">{{cookies.prenom}} </div>
                     </div>
 
 
@@ -53,7 +57,7 @@ function ProfilComponent() {
 
                     <div className="row">
                       <div className="col-lg-3 col-md-4 label">Contact:</div>
-                      <div className="col-lg-9 col-md-8 text-modif">k.anderson@example.com</div>
+                      <div className="col-lg-9 col-md-8 text-modif">{cookies.contact}</div>
                     </div>
 
                   </div>
