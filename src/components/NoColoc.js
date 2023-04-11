@@ -62,7 +62,7 @@ const NoRoommate = ({user_id,isLoading}) => {
   
   api.post('/add-to-coloc', {
       id_members:[cookies.users],
-      id_coloc:colocataire
+      id_coloc:id_coloc
     })
     .then(response => {
       setTypeToast("success")
