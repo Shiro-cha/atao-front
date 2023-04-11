@@ -22,24 +22,27 @@ let api = axios.create(baseUrl);
 //const roommateList = []
 
 export default function ColocComponent() {
-    
+    const textRef = useRef(null);
      const [cookies,setCookie] = useCookies(['users','coloc']);
      const [isCopied, setIsCopied] = useState(false);
 
     const [roommateList,setRoommateList] = useState([]);
     
      const handleCopyClick = () => {
-     console.log(navigator)
-    navigator.clipboard.writeText(cookies.coloc)
-      .then(() => {
+     const text = textRef.current.textContent;
+
+    const textField = document.createElement('textarea');
+    textField.innerText = text;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand('copy');
+    textField.remove();
+    
         setIsCopied(true);
         setTimeout(() => {
           setIsCopied(false);
         }, 3000); // réinitialiser l'état de copie après 3 secondes
-      })
-      .catch((err) => {
-        console.error('Erreur lors de la copie du code :', err);
-      });
+      
   };
 
     useEffect(() => {
@@ -60,7 +63,7 @@ export default function ColocComponent() {
         return (
   <main  id="main" className="main">
     <Paper className="p-3">
-    <Typography className="m-5 text-dark" sx={{color:"#444444"}} >
+    <Typography className="m-5 text-dark" sx={{color:"#444444"}} ref={textRef}>
     {`Identifiant coloc: ${cookies.coloc}` }
     </Typography>
     <button onClick={handleCopyClick}>
