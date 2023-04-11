@@ -8,7 +8,7 @@ import baseUrl from "../config/baseUrl";
 
 let api = axios.create(baseUrl)
 
-const ListTaches = ({ allTaches }) => {
+const ListTaches = ({ allTaches,section}) => {
   if (allTaches && allTaches.length > 0) {
     return (
       allTaches.reverse().map(function (value) {
