@@ -35,6 +35,7 @@ function EventForm({ addEvent }) {
   };
   
   function onSelect(selectedList, selectedItem) {
+    console.log(selectedItem);
     setTask_members([...task_members,selectedItem.id])
   }
 
