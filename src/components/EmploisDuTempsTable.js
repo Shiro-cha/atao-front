@@ -1,5 +1,6 @@
 import { useState } from 'react';
- 
+
+import  Typography from '@mui/material/Typography';
 import  Table from '@mui/material/Table';
 import  TableBody from '@mui/material/TableBody';
 import  TableCell from '@mui/material/TableCell';
@@ -141,6 +142,9 @@ function TableEmploiDuTemps({ onUpdate }) {
   return(
   
   <TableContainer component={Paper}>
+  <Typography>
+  Emplois du temps
+  </Typography>
       <Table>
         {renderTable()}
       </Table>
