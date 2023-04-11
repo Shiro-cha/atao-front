@@ -23,7 +23,7 @@ const ListTaches = ({ allTaches,section}) => {
               <a href="/" className="voir w-100 h-100">Voir</a>
             </td>
             <td><button className="dets">Details</button></td>
-            <td><button className="valide">{section=="mes"?"Annuler":"Rappeler"}</button></td>
+            <td><button className="valide" onClick={()=>{alert("")}}>{section=="mes"?"Annuler":"Rappeler"}</button></td>
           </tr>
         )
       })

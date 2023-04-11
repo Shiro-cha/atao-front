@@ -64,8 +64,8 @@ function EmploiDuTemps() {
         {selectedEvent && (
           <DialogContent>
             <p>Titre : {selectedEvent.title}</p>
-            <p>Date de début : {selectedEvent.start.toString()}</p>
-            <p>Date de fin : {selectedEvent.end.toString()}</p>
+            <p>Date de début : {moment(selectedEvent.start.toString()).format('dddd D MMMM YYYY')}</p>
+            <p>Date de fin : {moment(selectedEvent.end.toString()).format('dddd D MMMM YYYY')}}</p>
             {/* Ajoutez ici un formulaire pour éditer l'événement */}
           </DialogContent>
         )}
