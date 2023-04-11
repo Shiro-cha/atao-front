@@ -67,7 +67,8 @@ export default function ColocComponent() {
      <div className="row">
       <div className="col-6">
     <Typography className="m-5 text-dark" sx={{color:"#444444"}} ref={textRef}>
-    {`Identifiant coloc: ${cookies.coloc}` }
+    {`Identifiant coloc: ${cookies.coloc}` }<button onClick={handleCopyClick}>{isCopied ? 'Copié !' : 'Copier'}
+      </button>
     </Typography>
      </div>
       <div className="col-6">
