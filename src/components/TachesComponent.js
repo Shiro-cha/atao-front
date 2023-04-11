@@ -15,7 +15,7 @@ const ListTaches = ({ allTaches }) => {
         return (
           <tr key={value.id}>
             <td>
-              <CircularIntegration />
+              <CircularIntegration id_task={value._id.toString()} etat={value.etat}/>
             </td>
             <td>{value.titre}</td>
             <td>30 min</td>

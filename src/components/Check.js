@@ -15,7 +15,7 @@ import baseUrl from "../config/baseUrl";
 
 let api = axios.create(baseUrl);
 
-export default function CircularIntegration({etat}) {
+export default function CircularIntegration({etat,id_task}) {
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const timer = React.useRef();
@@ -39,7 +39,7 @@ export default function CircularIntegration({etat}) {
     if (!loading) {
       setSuccess(false);
       setLoading(true);
-      api.post("/validate-task").then(function({data}){
+      api.post("/validate-task",{id_task:id_task}).then(function({data}){
       
       setSuccess(true);
         setLoading(false);
