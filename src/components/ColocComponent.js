@@ -67,15 +67,11 @@ export default function ColocComponent() {
      <div className="row">
       <div className="col-6">
     <Typography className="m-5 text-dark" sx={{color:"#444444"}} ref={textRef}>
-    {`Identifiant coloc: ${cookies.coloc}` }<button onClick={handleCopyClick}>{isCopied ? 'Copié !' : 'Copier'}
-      </button>
+    {`Identifiant coloc: ${cookies.coloc}` }<Button onClick={handleCopyClick}>{isCopied ? 'Copié !' : 'Copier'}
+      </Button>
     </Typography>
      </div>
-      <div className="col-6">
-    <button onClick={handleCopyClick}>
-        {isCopied ? 'Copié !' : 'Copier'}
-      </button>
-       </div>
+      
       </div>
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
