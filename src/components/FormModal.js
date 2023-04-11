@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
+import { useCookies } from 'react-cookie';
 import Button from '@mui/material/Button';
 import moment from 'moment';
 import axios from "axios";
@@ -15,7 +16,7 @@ function EventForm({ addEvent }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [task_members, setTask_members] = useState([]);
-  
+  const [cookies,setCookie] = useCookies(['users','coloc']);
   const [users, setUsers] = useState([]);
   const [options, setOptions] = useState([]);
 
@@ -45,7 +46,7 @@ function EventForm({ addEvent }) {
 
   
   useEffect(() => {
-    api.post("/get-coloc").then((response) => {
+    api.post("/get-coloc",{id_coloc:cookies.coloc}).then((response) => {
       setUsers(response.data);
 
    response.data.forEach((user) => {
