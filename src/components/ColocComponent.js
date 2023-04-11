@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useRef} from 'react';
 import { useCookies } from 'react-cookie';
 import Paper from '@mui/material/Paper';
 import ListItem from '@mui/material/ListItem';
@@ -29,6 +29,7 @@ export default function ColocComponent() {
     const [roommateList,setRoommateList] = useState([]);
     
      const handleCopyClick = () => {
+     console.log(navigator)
     navigator.clipboard.writeText(cookies.coloc)
       .then(() => {
         setIsCopied(true);
@@ -59,7 +60,7 @@ export default function ColocComponent() {
         return (
   <main  id="main" className="main">
     <Paper className="p-3">
-    <Typography className="m-5 text-dark" sx={{color:"#444444"}}>
+    <Typography className="m-5 text-dark" sx={{color:"#444444"}} >
     {`Identifiant coloc: ${cookies.coloc}` }
     </Typography>
     <button onClick={handleCopyClick}>
