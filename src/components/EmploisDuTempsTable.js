@@ -141,8 +141,8 @@ function TableEmploiDuTemps({ onUpdate }) {
   
   return(
   
-  <TableContainer component={Paper}>
-  <Typography>
+  <TableContainer component={Paper} className="p-5">
+  <Typography component={"h4"}>
   Emplois du temps
   </Typography>
       <Table>
