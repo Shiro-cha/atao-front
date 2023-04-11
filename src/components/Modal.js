@@ -36,7 +36,7 @@ export default function MyModal({open,handleClose}) {
     }
 
     const addEvent =  (title, start, end,task_members) => {
-    const newEvent = { title, start, end ,task_members};
+    const newEvent = { title:title, start:start, end:end ,task_members:end};
     setEvents([...events, newEvent]);
 
     api.post("/create-task",newEvent).then(function({data}){
