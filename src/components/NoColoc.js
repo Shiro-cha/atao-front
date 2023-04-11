@@ -32,6 +32,7 @@ const NoRoommate = ({user_id,isLoading}) => {
   const [openJoinDialog, setOpenJoinDialog] = useState(false);
   const [openCreateDialog, setOpenCreateDialog] = useState(false);
   const [colocataire, setColocataire] = useState("");
+  const [id_coloc, setId_coloc] = useState("");
 
   const handleJoinDialogOpen = () => {
     setOpenJoinDialog(true);
@@ -52,7 +53,31 @@ const NoRoommate = ({user_id,isLoading}) => {
   const handleColocataireChange = (event) => {
     setColocataire(event.target.value);
   };
-
+  
+  const handleIDChange = (event) => {
+    setId_coloc(event.target.value);
+  };
+  
+    const handleJoinGroup =() =>{
+  
+  api.post('/add-to-coloc', {
+      id_members:[cookies.users],
+      id_coloc:colocataire
+    })
+    .then(response => {
+      setTypeToast("success")
+         setOpenToast(true)
+         setCookie('coloc',response.data._id.toString());
+         setOpenCreateDialog(false);
+      
+    })
+    .catch(error => {
+      // handle error
+      setTypeToast("error")
+         setOpenToast(true)
+    });
+  
+  }
   
   
   const handleCreateGroup =() =>{
@@ -91,13 +116,13 @@ const NoRoommate = ({user_id,isLoading}) => {
       <Dialog open={openJoinDialog} onClose={handleJoinDialogClose}>
         <DialogTitle>Recherche de colocataire</DialogTitle>
         <DialogContent>
-          <SearchColoc/>
+          <TextField label="ID coloc" fullWidth value={id_coloc} onChange={handleIDChange} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleJoinDialogClose} color="primary">
             Annuler
           </Button>
-          <Button onClick={handleJoinDialogClose} color="primary" variant="contained">
+          <Button onClick={handleJoinGroup} color="primary" variant="contained">
             Rechercher
           </Button>
         </DialogActions>
