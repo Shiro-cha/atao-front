@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CookiesProvider } from 'react-cookie';
 
 //generale style
 import "./assets/css/bootstrap.min.css";
@@ -16,7 +17,7 @@ import Taches from "./pages/Taches";
 function App() {
   return (
     <>
-
+    <CookiesProvider>
     <BrowserRouter>
       <Routes>
       <Route exact path="/inscription" element={<Inscription/>}/>
@@ -30,6 +31,7 @@ function App() {
       <Route  path="/" element={<Home/>}/>
       </Routes>
     </BrowserRouter>
+    </CookiesProvider>
     </>
   );
 }

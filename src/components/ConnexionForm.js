@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import {Link,useNavigate} from "react-router-dom";
 
@@ -7,6 +8,7 @@ import baseUrl from "../config/baseUrl";
 let api = axios.create(baseUrl)
 
 function ConnexionForm() {
+ const [cookies, setCookie] = useCookies(['users',"coloc"]);
 
      const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +24,9 @@ function ConnexionForm() {
     .then(response => {
       // handle success
       console.log(response.data);
-      navigate(`/taches?user=${response.data._id.toString()}&coloc=${response.data.id_coloc}`);
+      setCookie("users",response.data._id.toString());
+      setCookie("coloc",response.data.id_coloc)
+      navigate(`/taches`);
       
     })
     .catch(error => {
