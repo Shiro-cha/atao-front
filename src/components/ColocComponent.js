@@ -24,8 +24,22 @@ let api = axios.create(baseUrl);
 export default function ColocComponent() {
     
      const [cookies,setCookie] = useCookies(['users','coloc']);
+     const [isCopied, setIsCopied] = useState(false);
 
     const [roommateList,setRoommateList] = useState([]);
+    
+     const handleCopyClick = () => {
+    navigator.clipboard.writeText(cookies.coloc)
+      .then(() => {
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 3000); // réinitialiser l'état de copie après 3 secondes
+      })
+      .catch((err) => {
+        console.error('Erreur lors de la copie du code :', err);
+      });
+  };
 
     useEffect(() => {
     api.post("/get-coloc",{
@@ -48,6 +62,9 @@ export default function ColocComponent() {
     <Typography className="m-5 text-dark" sx={{color:"#444444"}}>
     {`Identifiant coloc: ${cookies.coloc}` }
     </Typography>
+    <button onClick={handleCopyClick}>
+        {isCopied ? 'Copié !' : 'Copier'}
+      </button>
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start" button>
