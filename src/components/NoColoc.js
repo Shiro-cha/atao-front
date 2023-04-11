@@ -80,6 +80,7 @@ const NoRoommate = ({user_id,isLoading}) => {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh" }}>
     {
     isLoading? <CircularProgress/>:
+        <>
        <Toast open={openToast} handleClose={handleCloseToast} type={typeToast} />
       <Typography variant="p" sx={{color:"#333333"}}>Vous n'avez pas encore de colocataire</Typography>
       <div className="mt-5 row">
@@ -122,6 +123,7 @@ const NoRoommate = ({user_id,isLoading}) => {
       </Dialog>
       </div>
       </div>
+      </>
       }
     </div>
   );
