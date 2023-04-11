@@ -49,7 +49,7 @@ function ProfilComponent() {
 
                     <div className="row">
                       <div className="col-lg-3 col-md-4 label ">Prénom:</div>
-                      <div className="col-lg-9 col-md-8 text-modif">{{cookies.prenom}} </div>
+                      <div className="col-lg-9 col-md-8 text-modif">{cookies.prenom} </div>
                     </div>
 
 
