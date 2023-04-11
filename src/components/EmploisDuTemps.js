@@ -44,7 +44,13 @@ function EmploiDuTemps() {
 
   return (
     <div>
-      <Typography>Agenda</Typography>
+    <ul className="nav nav-tabs head-card nav-tabs-bordered">
+
+                  <li className="nav-item info">
+                    <h3>AGENDA</h3>
+                  </li>
+                </ul>
+   
       <Calendar
         localizer={localizer}
         events={events}
