@@ -6,6 +6,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import NoColoc from './NoColoc';
 
 //axios
@@ -43,10 +44,10 @@ export default function ColocComponent() {
     
         return (
   <main  id="main" className="main">
-    <Paper>
-    <div>
+    <Paper className="p-3">
+    <Typography>
     {`Identifiant coloc: ${cookies.coloc}` }
-    </div>
+    </Typography>
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start" button>
