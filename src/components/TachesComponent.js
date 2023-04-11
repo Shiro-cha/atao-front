@@ -11,7 +11,7 @@ let api = axios.create(baseUrl)
 const ListTaches = ({ allTaches }) => {
   if (allTaches && allTaches.length > 0) {
     return (
-      allTaches.map(function (value) {
+      allTaches.reverse().map(function (value) {
         return (
           <tr key={value.id}>
             <td>
