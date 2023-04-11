@@ -52,13 +52,9 @@ const NoRoommate = ({user_id}) => {
     setColocataire(event.target.value);
   };
 
-  const handleCreateGroup = () => {
-    // Faire quelque chose avec la valeur de "colocataire"
-    console.log(colocataire);
-    setOpenCreateDialog(false);
-  };
   
-  const createColoc =() =>{
+  
+  const handleCreateGroup =() =>{
   
   api.post('/create-coloc', {
       id_members:[cookies.users],
@@ -67,6 +63,7 @@ const NoRoommate = ({user_id}) => {
     .then(response => {
       setTypeToast("success")
          setOpenToast(true)
+         setOpenCreateDialog(false);
       
     })
     .catch(error => {
