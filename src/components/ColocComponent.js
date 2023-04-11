@@ -44,6 +44,9 @@ export default function ColocComponent() {
         return (
   <main  id="main" className="main">
     <Paper>
+    <div>
+    {`Identifiant coloc: ${cookies.coloc}` }
+    </div>
       {roommateList.map((roommate, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start" button>
