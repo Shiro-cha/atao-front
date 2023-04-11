@@ -142,7 +142,7 @@ function TableEmploiDuTemps({ onUpdate }) {
   return(
   
   <TableContainer component={Paper} className="p-5">
-  <Typography component={"h4"}>
+  <Typography component={"h4"} sx={{textAlign:"center"}}>
   Emplois du temps
   </Typography>
       <Table>
