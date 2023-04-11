@@ -17,7 +17,7 @@ let api = axios.create(baseUrl);
 
 export default function CircularIntegration({etat,id_task}) {
   const [loading, setLoading] = React.useState(false);
-  const [success, setSuccess] = React.useState(false);
+  const [success, setSuccess] = React.useState(etat=="complete");
   const timer = React.useRef();
 
   const buttonSx = {
