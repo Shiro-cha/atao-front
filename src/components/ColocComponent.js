@@ -45,7 +45,7 @@ export default function ColocComponent() {
         return (
   <main  id="main" className="main">
     <Paper className="p-3">
-    <Typography>
+    <Typography className="m-5 text-dark">
     {`Identifiant coloc: ${cookies.coloc}` }
     </Typography>
       {roommateList.map((roommate, index) => (
