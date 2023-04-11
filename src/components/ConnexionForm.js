@@ -8,7 +8,7 @@ import baseUrl from "../config/baseUrl";
 let api = axios.create(baseUrl)
 
 function ConnexionForm() {
- const [cookies, setCookie] = useCookies(['users',"coloc"]);
+ const [cookies, setCookie] = useCookies(['users',"username","coloc"]);
 
      const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,6 +26,7 @@ function ConnexionForm() {
       console.log(response.data);
       setCookie("users",response.data._id.toString());
       setCookie("coloc",response.data.id_coloc)
+      setCookie("username",response.data.nom)
       navigate(`/taches`);
       
     })
