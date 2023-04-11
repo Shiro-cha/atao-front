@@ -14,6 +14,7 @@ function EventForm({ addEvent }) {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [task_members, setTask_members] = useState([]);
   
   const [users, setUsers] = useState([]);
   const [options, setOptions] = useState([]);
@@ -26,18 +27,19 @@ function EventForm({ addEvent }) {
     e.preventDefault();
     const start = moment(`${date} ${time}`, 'YYYY-MM-DD HH:mm').toDate();
     const end = moment(start).add(1, 'hour').toDate();
-    addEvent(title, start, end);
+    addEvent(title, start, end,task_members);
     setTitle('');
     setDate('');
     setTime('');
+    setOptions([]);
   };
   
   function onSelect(selectedList, selectedItem) {
-    console.log(selectedList);
+    setTask_members(selectedList)
   }
 
   function onRemove(selectedList, removedItem) {
-    console.log(selectedList);
+    setTask_members(selectedList)
   }
 
   
