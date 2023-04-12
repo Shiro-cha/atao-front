@@ -1,5 +1,5 @@
 export default {
-  baseURL: 'http://35.85.60.48:8000/api',
+  baseURL: 'http://34.213.229.119:8000/api',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
